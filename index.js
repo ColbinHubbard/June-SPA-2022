@@ -13,7 +13,7 @@ function render(state = store.Home) {
       ${Footer()}
     `;
   router.updatePageLinks();
-  afterRender();
+  afterRender(state);
 }
 
 function afterRender() {
