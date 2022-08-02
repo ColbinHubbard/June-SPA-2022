@@ -22,9 +22,6 @@ const logging = (request, response, next) => {
   next();
 };
 
-app.use(express.json());
-app.use(logging);
-
 // CORS Middleware
 const cors = (req, res, next) => {
   res.setHeader(
@@ -39,6 +36,10 @@ const cors = (req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 };
+
+app.use(cors);
+app.use(express.json());
+app.use(logging);
 
 // Handle the request with HTTP GET method from http://localhost:4040/status
 app.get("/status", (request, response) => {
